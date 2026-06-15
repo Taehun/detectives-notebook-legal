@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Detective's Notebook — Legal</title>
+  <style>
+    :root {
+      --bg: #1a1612;
+      --surface: #221d17;
+      --text: #f4efe4;
+      --text-secondary: #9b917e;
+      --primary: #b8860b;
+      --border: #3a332a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Apple SD Gothic Neo', Roboto, sans-serif;
+      line-height: 1.7;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .card {
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+    }
+    h1 { font-size: 26px; color: var(--primary); letter-spacing: 0.5px; margin-bottom: 6px; }
+    .tagline { color: var(--text-secondary); font-size: 14px; margin-bottom: 36px; }
+    .links { display: flex; flex-direction: column; gap: 14px; }
+    a.link {
+      display: block;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      color: var(--text);
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.1s;
+      text-align: left;
+    }
+    a.link:hover { border-color: var(--primary); transform: translateY(-1px); }
+    a.link strong { display: block; color: var(--primary); font-size: 15px; margin-bottom: 2px; }
+    a.link span { color: var(--text-secondary); font-size: 13px; }
+    .contact { margin-top: 32px; color: var(--text-secondary); font-size: 13px; }
+    .contact a { color: var(--primary); }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>The Detective's Notebook</h1>
+    <div class="tagline">일일 추리 챌린지 · Daily Deduction Challenge</div>
+    <div class="links">
+      <a class="link" href="privacy-policy.html">
+        <strong>개인정보처리방침 · Privacy Policy</strong>
+        <span>수집 항목, 제3자 제공, 광고·결제, 데이터 권리</span>
+      </a>
+      <a class="link" href="terms-of-service.html">
+        <strong>이용약관 · Terms of Service</strong>
+        <span>이용 자격, 가상 재화·환불, 공정 거래, 분쟁 해결</span>
+      </a>
+    </div>
+    <div class="contact">문의 · Contact: <a href="mailto:taehun@taehun.dev">taehun@taehun.dev</a></div>
+  </div>
+</body>
+</html>
