@@ -101,7 +101,6 @@
         <tr><td>익명 식별자</td><td>익명 인증 ID(Supabase Anonymous Auth가 발급하는 무작위 식별자), 기기에 저장되는 사용자 토큰</td><td>이용 기록 연동, 평판 관리</td></tr>
         <tr><td>닉네임</td><td>사용자가 직접 입력한 표시명(욕설 필터 적용)</td><td>랭킹·프로필 표시</td></tr>
         <tr><td>이용 기록</td><td>사건 풀이 결과(성공/의혹 동반 성공/실패), 평판 점수, 시도·사용 단서 메타데이터, 연속 출석(스트릭), 아카이브 진행</td><td>채점, 랭킹, 진행 저장</td></tr>
-        <tr><td>거래 내역</td><td>인앱결제 영수증, 힌트코인·시즌패스·광고 제거 구매/사용 기록(RevenueCat 경유)</td><td>결제 검증, 고객 지원</td></tr>
         <tr><td>광고 식별자</td><td>광고 식별자(IDFA/AAID) — 추적 동의(ATT) 시에만 개인화에 사용</td><td>광고 게재·측정</td></tr>
         <tr><td>분석·기기 정보</td><td>앱 버전, OS 버전, 기기 모델, 대략적 사용 패턴</td><td>서비스 품질 개선</td></tr>
       </table>
@@ -110,7 +109,6 @@
       <ul>
         <li>일일 사건 채점 및 평판·랭킹 산정(서버 권위 채점)</li>
         <li>부정행위(브루트포스·다중 시도 등) 탐지 및 방지</li>
-        <li>인앱결제 검증 및 환불·고객 지원</li>
         <li>(동의 시) 광고 게재 및 성과 측정</li>
         <li>서비스 안정성 및 품질 개선을 위한 통계 분석</li>
       </ul>
@@ -120,8 +118,6 @@
         <tr><th>수신자</th><th>제공 데이터</th><th>목적</th></tr>
         <tr><td>Supabase</td><td>익명 식별자, 닉네임, 이용 기록</td><td>인증·데이터베이스·서버 기능(인프라) 운영</td></tr>
         <tr><td>Google AdMob</td><td>광고 식별자, 기기 정보</td><td>광고 게재 및 측정</td></tr>
-        <tr><td>RevenueCat</td><td>인앱결제 영수증, 익명 식별자</td><td>결제 관리·검증</td></tr>
-        <tr><td>Apple / Google</td><td>결제 영수증</td><td>인앱결제 검증</td></tr>
         <tr><td>Kakao</td><td>사용자가 직접 공유 버튼을 누를 때의 공유 카드 이미지·문구(범인·결정적 단서 미포함)</td><td>결과 공유(사용자 명시적 요청 시에만)</td></tr>
       </table>
       <p>상기 외 제3자에게 개인정보를 판매하거나 공유하지 않습니다. 위 사업자 중 일부는 데이터를 국외(미국 등)에서 처리할 수 있으며, 이용자는 서비스 이용으로 해당 국외 처리에 동의합니다.</p>
@@ -130,8 +126,7 @@
       <ul>
         <li>광고는 홈·아카이브·랭킹·프로필 등 <strong>메타 화면의 배너 광고</strong>로만 게재되며, 추리 풀이 화면(탐문·추론·전말·결과)에는 광고를 노출하지 않습니다.</li>
         <li>iOS에서는 App Tracking Transparency(ATT) 동의를 받은 경우에만 광고 식별자를 개인화 목적으로 사용합니다. 동의하지 않아도 비개인화 광고가 게재될 수 있습니다.</li>
-        <li>광고 제거 인앱결제(adFree) 구매 시 배너 광고가 표시되지 않습니다.</li>
-        <li>리워드 광고는 이용자가 자발적으로 시청을 선택하는 경우에만 재생됩니다.</li>
+        <li>본 서비스는 광고 수익으로만 운영되며, 인앱결제(IAP)·유료 구독·광고 제거 상품이 없습니다.</li>
       </ul>
 
       <h2>5. 아동 보호 (COPPA)</h2>
@@ -140,7 +135,6 @@
       <h2>6. 데이터 보관 및 삭제</h2>
       <ul>
         <li><strong>이용 기록·평판:</strong> 익명 계정이 유지되는 동안 보관</li>
-        <li><strong>거래 내역:</strong> 관련 법령에 따라 최소 5년 보관</li>
         <li><strong>계정·데이터 삭제:</strong> 앱 내 설정 또는 아래 연락처로 요청 시 30일 이내 처리(법적 보관 의무 데이터 제외)</li>
       </ul>
 
@@ -153,7 +147,6 @@
         <li>모든 통신은 HTTPS(TLS 1.2+)로 암호화</li>
         <li>Supabase Row Level Security로 본인 데이터만 접근 가능하도록 서버 측 제어</li>
         <li>채점·평판·정답 검증은 서버에서만 수행(클라이언트 판정 금지)</li>
-        <li>인앱결제는 Apple/Google 및 RevenueCat 서버에서 이중 검증</li>
         <li>민감 로컬 데이터는 암호화하여 저장</li>
       </ul>
 
@@ -174,7 +167,6 @@
         <tr><td>Anonymous ID</td><td>Anonymous auth ID (a random identifier issued by Supabase Anonymous Auth), device-stored user token</td><td>Linking activity, reputation</td></tr>
         <tr><td>Nickname</td><td>A display name you enter (profanity filtered)</td><td>Rankings, profile display</td></tr>
         <tr><td>Activity Records</td><td>Case results (solved / solved with doubts / failed), reputation score, attempt & clue-usage metadata, streaks, archive progress</td><td>Scoring, ranking, progress</td></tr>
-        <tr><td>Transactions</td><td>In-app purchase receipts; hint-coin, season-pass, and ad-removal purchase/usage records (via RevenueCat)</td><td>Payment verification, support</td></tr>
         <tr><td>Advertising ID</td><td>Advertising identifier (IDFA/AAID) — used for personalization only with tracking (ATT) consent</td><td>Ad serving & measurement</td></tr>
         <tr><td>Analytics & Device</td><td>App version, OS version, device model, coarse usage patterns</td><td>Service improvement</td></tr>
       </table>
@@ -183,7 +175,6 @@
       <ul>
         <li>Daily-case scoring and reputation/ranking calculation (server-authoritative)</li>
         <li>Cheating detection and prevention (brute-force, repeated attempts, etc.)</li>
-        <li>In-app purchase verification, refunds, and customer support</li>
         <li>(With consent) ad serving and performance measurement</li>
         <li>Statistical analysis for reliability and quality improvement</li>
       </ul>
@@ -193,8 +184,6 @@
         <tr><th>Recipient</th><th>Data Shared</th><th>Purpose</th></tr>
         <tr><td>Supabase</td><td>Anonymous ID, nickname, activity records</td><td>Auth, database, server functions (infrastructure)</td></tr>
         <tr><td>Google AdMob</td><td>Advertising ID, device info</td><td>Ad serving & measurement</td></tr>
-        <tr><td>RevenueCat</td><td>Purchase receipts, anonymous ID</td><td>Payment management & verification</td></tr>
-        <tr><td>Apple / Google</td><td>Purchase receipts</td><td>In-app purchase verification</td></tr>
         <tr><td>Kakao</td><td>Share-card image/text when you tap Share (never includes the culprit or decisive clues)</td><td>Result sharing (only on your explicit request)</td></tr>
       </table>
       <p>We do not sell or share personal information beyond those listed above. Some processors may handle data outside your country (e.g., the United States); by using the Service you consent to such transfer.</p>
@@ -203,8 +192,7 @@
       <ul>
         <li>Ads appear only as <strong>banner ads on meta screens</strong> (home, archive, rankings, profile). No ads appear during the core puzzle loop (investigation, deduction, verdict, result).</li>
         <li>On iOS, the advertising identifier is used for personalization only if you grant App Tracking Transparency (ATT) consent. Non-personalized ads may still be shown otherwise.</li>
-        <li>Purchasing the ad-removal in-app purchase (adFree) hides banner ads.</li>
-        <li>Rewarded ads play only when you voluntarily choose to watch them.</li>
+        <li>The Service is supported solely by advertising; there are no in-app purchases, paid subscriptions, or ad-removal products.</li>
       </ul>
 
       <h2>5. Children's Privacy (COPPA)</h2>
@@ -213,7 +201,6 @@
       <h2>6. Data Retention and Deletion</h2>
       <ul>
         <li><strong>Activity & reputation:</strong> Retained while the anonymous account exists</li>
-        <li><strong>Transaction records:</strong> Retained for a minimum of 5 years per applicable law</li>
         <li><strong>Account/data deletion:</strong> Processed within 30 days of a request via in-app settings or the contact below (excluding legally required records)</li>
       </ul>
 
@@ -226,7 +213,6 @@
         <li>All communications encrypted via HTTPS (TLS 1.2+)</li>
         <li>Server-side access control via Supabase Row Level Security (own data only)</li>
         <li>Scoring, reputation, and answer verification performed only on the server (no client-side judging)</li>
-        <li>In-app purchases double-verified with Apple/Google and RevenueCat servers</li>
         <li>Sensitive local data stored encrypted</li>
       </ul>
 
