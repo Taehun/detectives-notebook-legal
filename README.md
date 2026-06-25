@@ -8,6 +8,7 @@
 - `privacy-policy.html` — 개인정보처리방침 (KO/EN 토글)
 - `terms-of-service.html` — 이용약관 (KO/EN 토글)
 - `icon.png` / `favicon.png` — 앱 아이콘(게임 저장소 `assets/icon.png` 미러)
+- `screenshots/` — 앱 화면 캡처(홈·탐문·추리 보드·랭킹). 스포일러(범인·단서·진실) 없는 화면만. UI가 바뀌면 재캡처해 교체.
 
 ## 공개 URL (GitHub Pages)
 

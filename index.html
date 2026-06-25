@@ -128,6 +128,26 @@
     .step h4 { font-size: 15px; color: var(--paper); margin-bottom: 4px; }
     .step p { font-size: 13px; color: var(--text-secondary); }
 
+    /* ── Screenshots ───────────────────────────────── */
+    section.shots { padding: 56px 0 24px; }
+    .gallery {
+      display: flex; gap: 18px; overflow-x: auto;
+      padding: 6px 4px 18px; scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    .gallery::-webkit-scrollbar { height: 8px; }
+    .gallery::-webkit-scrollbar-thumb { background: var(--border); border-radius: 999px; }
+    .shot { flex: 0 0 auto; width: 208px; scroll-snap-align: center; text-align: center; }
+    .shot img {
+      width: 208px; height: auto; display: block;
+      border-radius: 22px; border: 1px solid var(--border);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.5);
+      background: var(--bg-2);
+    }
+    .shot figcaption {
+      margin-top: 12px; font-size: 13px; color: var(--text-secondary);
+    }
+
     /* ── Footer ─────────────────────────────────────── */
     footer {
       margin-top: 64px; border-top: 1px solid var(--border);
@@ -220,6 +240,29 @@
           <h4>판결</h4>
           <p>최종 판결로 일괄 채점. 사건의 진실이 한 호흡씩 드러납니다.</p>
         </div>
+      </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="shots">
+      <div class="section-title">화면 미리보기</div>
+      <div class="gallery">
+        <figure class="shot">
+          <img src="screenshots/shot-home.png" alt="홈 — 오늘의 사건 의뢰" loading="lazy">
+          <figcaption>오늘의 사건 의뢰</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="screenshots/shot-play.png" alt="탐문 — 추리 소설을 읽으며 단서 수집" loading="lazy">
+          <figcaption>탐문 — 단서 수집</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="screenshots/shot-board.png" alt="추리 보드 — 단서를 이어 추론·범인 지목" loading="lazy">
+          <figcaption>추리 보드</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="screenshots/shot-ranking.png" alt="랭킹 — 시즌 평판 순위" loading="lazy">
+          <figcaption>평판 랭킹</figcaption>
+        </figure>
       </div>
     </section>
 
