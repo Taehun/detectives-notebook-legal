@@ -3,69 +3,236 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>탐정 수첩 — Legal</title>
+  <title>탐정 수첩 · The Detective's Notebook — 일일 추리 챌린지</title>
+  <meta name="description" content="하루 한 사건. 흩어진 단서를 내 손으로 이어 진실을 조립하는 5분짜리 탐정 의식. 찍기 없는 능동 추론 모바일 게임.">
+  <link rel="icon" href="favicon.png">
+
+  <!-- Open Graph / 공유 미리보기 -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="탐정 수첩 · The Detective's Notebook">
+  <meta property="og:description" content="하루 한 사건, 흩어진 단서를 이어 진실을 조립하는 5분짜리 추리 게임.">
+  <meta property="og:image" content="https://taehun.github.io/detectives-notebook-legal/icon.png">
+  <meta property="og:url" content="https://taehun.github.io/detectives-notebook-legal/">
+  <meta name="twitter:card" content="summary">
+
   <style>
     :root {
-      --bg: #1a1612;
+      --bg: #0e0f12;
+      --bg-2: #1a1612;
       --surface: #221d17;
+      --surface-2: #2a241c;
       --text: #f4efe4;
       --text-secondary: #9b917e;
-      --primary: #b8860b;
+      --muted: #6f685c;
+      --primary: #e6b450;
+      --primary-deep: #b8860b;
       --border: #3a332a;
+      --paper: #f4ecd8;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      background: var(--bg);
+      background:
+        radial-gradient(1200px 600px at 50% -10%, rgba(230,180,80,0.10), transparent 60%),
+        var(--bg);
       color: var(--text);
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Apple SD Gothic Neo', Roboto, sans-serif;
       line-height: 1.7;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
+      -webkit-font-smoothing: antialiased;
     }
-    .card {
-      max-width: 480px;
-      width: 100%;
-      text-align: center;
-    }
-    h1 { font-size: 26px; color: var(--primary); letter-spacing: 0.5px; margin-bottom: 6px; }
-    .tagline { color: var(--text-secondary); font-size: 14px; margin-bottom: 36px; }
-    .links { display: flex; flex-direction: column; gap: 14px; }
-    a.link {
-      display: block;
-      background: var(--surface);
+    .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+    a { color: var(--primary); }
+
+    /* ── Hero ───────────────────────────────────────── */
+    header.hero { text-align: center; padding: 72px 0 48px; }
+    .app-icon {
+      width: 112px; height: 112px; border-radius: 26px;
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 18px 20px;
-      color: var(--text);
-      text-decoration: none;
-      transition: border-color 0.2s, transform 0.1s;
-      text-align: left;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(230,180,80,0.08);
+      margin-bottom: 24px;
     }
-    a.link:hover { border-color: var(--primary); transform: translateY(-1px); }
-    a.link strong { display: block; color: var(--primary); font-size: 15px; margin-bottom: 2px; }
-    a.link span { color: var(--text-secondary); font-size: 13px; }
-    .contact { margin-top: 32px; color: var(--text-secondary); font-size: 13px; }
-    .contact a { color: var(--primary); }
+    .hero h1 {
+      font-size: 40px; letter-spacing: 1px; color: var(--paper);
+      margin-bottom: 4px; font-weight: 800;
+    }
+    .hero .en {
+      font-size: 15px; color: var(--primary); letter-spacing: 2px;
+      text-transform: uppercase; margin-bottom: 22px;
+    }
+    .hero .lede {
+      font-size: 18px; color: var(--text-secondary);
+      max-width: 560px; margin: 0 auto 14px;
+    }
+    .hero .badge-free {
+      display: inline-block; margin-top: 10px;
+      font-size: 12px; color: var(--primary);
+      border: 1px solid var(--border); border-radius: 999px;
+      padding: 6px 14px; letter-spacing: 0.4px;
+    }
+
+    /* ── Download CTA ───────────────────────────────── */
+    .cta { text-align: center; padding: 8px 0 8px; }
+    .stores { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 26px; }
+    .store {
+      display: flex; align-items: center; gap: 12px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 13px 22px; min-width: 210px;
+      text-decoration: none; color: var(--text);
+      opacity: 0.62; cursor: default; text-align: left;
+    }
+    .store .glyph { font-size: 26px; line-height: 1; }
+    .store .t1 { font-size: 11px; color: var(--text-secondary); letter-spacing: 0.3px; }
+    .store .t2 { font-size: 16px; font-weight: 700; color: var(--paper); }
+    .coming {
+      margin-top: 16px; font-size: 13px; color: var(--muted);
+    }
+    .notify {
+      display: inline-block; margin-top: 18px;
+      background: var(--primary); color: #1a1410;
+      font-weight: 700; font-size: 15px; text-decoration: none;
+      border-radius: 12px; padding: 13px 26px;
+      transition: transform 0.1s, filter 0.2s;
+    }
+    .notify:hover { transform: translateY(-1px); filter: brightness(1.06); }
+
+    /* ── Features ───────────────────────────────────── */
+    section.features { padding: 60px 0 24px; }
+    .section-title {
+      text-align: center; font-size: 13px; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--primary);
+      margin-bottom: 30px;
+    }
+    .grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+    }
+    .feature {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 24px;
+      transition: border-color 0.2s, transform 0.1s;
+    }
+    .feature:hover { border-color: var(--primary-deep); transform: translateY(-2px); }
+    .feature .fi { font-size: 24px; margin-bottom: 12px; }
+    .feature h3 { font-size: 17px; color: var(--paper); margin-bottom: 6px; }
+    .feature p { font-size: 14px; color: var(--text-secondary); }
+
+    /* ── How it works ──────────────────────────────── */
+    section.steps { padding: 48px 0 24px; }
+    .step-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .step { text-align: center; padding: 16px; }
+    .step .num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 40px; height: 40px; border-radius: 999px;
+      border: 1px solid var(--primary-deep); color: var(--primary);
+      font-weight: 800; margin-bottom: 12px;
+    }
+    .step h4 { font-size: 15px; color: var(--paper); margin-bottom: 4px; }
+    .step p { font-size: 13px; color: var(--text-secondary); }
+
+    /* ── Footer ─────────────────────────────────────── */
+    footer {
+      margin-top: 64px; border-top: 1px solid var(--border);
+      padding: 36px 0 48px; text-align: center;
+    }
+    .legal-links { display: flex; gap: 22px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+    .legal-links a { font-size: 14px; color: var(--text-secondary); text-decoration: none; }
+    .legal-links a:hover { color: var(--primary); }
+    .copyright { font-size: 12px; color: var(--muted); }
+    .copyright a { color: var(--text-secondary); }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 32px; }
+      .grid, .step-list { grid-template-columns: 1fr; }
+      .store { width: 100%; }
+    }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>탐정 수첩</h1>
-    <div class="tagline">The Detective's Notebook · 일일 추리 챌린지</div>
-    <div class="links">
-      <a class="link" href="privacy-policy.html">
-        <strong>개인정보처리방침 · Privacy Policy</strong>
-        <span>수집 항목, 제3자 제공, 광고·결제, 데이터 권리</span>
-      </a>
-      <a class="link" href="terms-of-service.html">
-        <strong>이용약관 · Terms of Service</strong>
-        <span>이용 자격, 광고 수익 모델, 공정 거래, 분쟁 해결</span>
-      </a>
+  <div class="wrap">
+
+    <!-- Hero -->
+    <header class="hero">
+      <img class="app-icon" src="icon.png" alt="탐정 수첩 앱 아이콘">
+      <h1>탐정 수첩</h1>
+      <div class="en">The Detective's Notebook</div>
+      <p class="lede">하루 한 사건. 흩어진 단서를 <strong>내 손으로 이어</strong> 진실을 조립하는 5분짜리 탐정 의식.</p>
+      <span class="badge-free">완전 무료 · 광고 전용 · Pay-to-Win 없음</span>
+    </header>
+
+    <!-- Download CTA -->
+    <div class="cta">
+      <div class="stores">
+        <span class="store" aria-disabled="true">
+          <span class="glyph">🍎</span>
+          <span><span class="t1">곧 출시 · Coming soon</span><span class="t2">App Store</span></span>
+        </span>
+        <span class="store" aria-disabled="true">
+          <span class="glyph">▶</span>
+          <span><span class="t1">곧 출시 · Coming soon</span><span class="t2">Google Play</span></span>
+        </span>
+      </div>
+      <p class="coming">iOS · Android 출시 준비 중입니다.</p>
+      <a class="notify" href="mailto:taehun@taehun.dev?subject=탐정%20수첩%20출시%20알림%20신청">출시 알림 받기</a>
     </div>
-    <div class="contact">문의 · Contact: <a href="mailto:taehun@taehun.dev">taehun@taehun.dev</a></div>
+
+    <!-- Features -->
+    <section class="features">
+      <div class="section-title">무엇이 다른가</div>
+      <div class="grid">
+        <div class="feature">
+          <div class="fi">🗂️</div>
+          <h3>하루 한 사건</h3>
+          <p>매일 새 의뢰가 배정됩니다. 한 판 5–10분, 출근길·자기 전 짧은 추리 한 판.</p>
+        </div>
+        <div class="feature">
+          <div class="fi">🔗</div>
+          <h3>찍기 없는 능동 추론</h3>
+          <p>객관식이 아닙니다. 단서를 직접 이어 추론을 만들고, 그 추론이 다음 추론의 재료가 됩니다.</p>
+        </div>
+        <div class="feature">
+          <div class="fi">⚖️</div>
+          <h3>집합 판정</h3>
+          <p>선택은 즉시 채점되지 않습니다. 모든 단서를 모아 최종 판결 — 틀린 선택은 사건의 견고함을 깎습니다.</p>
+        </div>
+        <div class="feature">
+          <div class="fi">🏆</div>
+          <h3>평판 랭킹 & 공유</h3>
+          <p>시즌 랭킹과 사건 아카이브. 결과는 스포일러 없는 카드로 공유 — 친구는 직접 풀어봐야 진실을 압니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="steps">
+      <div class="section-title">한 판의 흐름</div>
+      <div class="step-list">
+        <div class="step">
+          <div class="num">1</div>
+          <h4>탐문</h4>
+          <p>추리 소설처럼 장면을 읽어 내려가며 문장 속 단서를 짚어 수집합니다.</p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <h4>추리 보드</h4>
+          <p>이종 단서 2개 이상을 교차해 추론을 확정하고 범인을 지목합니다.</p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <h4>판결</h4>
+          <p>최종 판결로 일괄 채점. 사건의 진실이 한 호흡씩 드러납니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="legal-links">
+        <a href="privacy-policy.html">개인정보처리방침</a>
+        <a href="terms-of-service.html">이용약관</a>
+        <a href="mailto:taehun@taehun.dev">문의 · Contact</a>
+      </div>
+      <p class="copyright">© 2026 The Detective's Notebook · 탐정 수첩 — <a href="mailto:taehun@taehun.dev">taehun@taehun.dev</a></p>
+    </footer>
+
   </div>
 </body>
 </html>
