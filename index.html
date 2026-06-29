@@ -83,17 +83,11 @@
     .store .glyph { font-size: 26px; line-height: 1; }
     .store .t1 { font-size: 11px; color: var(--text-secondary); letter-spacing: 0.3px; }
     .store .t2 { font-size: 16px; font-weight: 700; color: var(--paper); }
+    .store.live { opacity: 1; cursor: pointer; transition: border-color 0.2s, transform 0.1s; }
+    .store.live:hover { border-color: var(--primary-deep); transform: translateY(-2px); }
     .coming {
       margin-top: 16px; font-size: 13px; color: var(--muted);
     }
-    .notify {
-      display: inline-block; margin-top: 18px;
-      background: var(--primary); color: #1a1410;
-      font-weight: 700; font-size: 15px; text-decoration: none;
-      border-radius: 12px; padding: 13px 26px;
-      transition: transform 0.1s, filter 0.2s;
-    }
-    .notify:hover { transform: translateY(-1px); filter: brightness(1.06); }
 
     /* ── Features ───────────────────────────────────── */
     section.features { padding: 60px 0 24px; }
@@ -181,17 +175,16 @@
     <!-- Download CTA -->
     <div class="cta">
       <div class="stores">
-        <span class="store" aria-disabled="true">
+        <a class="store live" href="https://apps.apple.com/kr/app/id6780565008">
           <span class="glyph">🍎</span>
-          <span><span class="t1">곧 출시 · Coming soon</span><span class="t2">App Store</span></span>
-        </span>
+          <span><span class="t1">다운로드 · Download</span><span class="t2">App Store</span></span>
+        </a>
         <span class="store" aria-disabled="true">
           <span class="glyph">▶</span>
           <span><span class="t1">곧 출시 · Coming soon</span><span class="t2">Google Play</span></span>
         </span>
       </div>
-      <p class="coming">iOS · Android 출시 준비 중입니다.</p>
-      <a class="notify" href="mailto:taehun@taehun.dev?subject=탐정%20수첩%20출시%20알림%20신청">출시 알림 받기</a>
+      <p class="coming">iOS는 App Store에서 만나보세요. Android는 준비 중입니다.</p>
     </div>
 
     <!-- Features -->
